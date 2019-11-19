@@ -45,6 +45,8 @@ def profile_view(request):
     }
     return render(request, "memberships/profile.html", context)
 
+def Index(request):
+    return render(request, "memberships/index.html")
 
 class MembershipSelectView(LoginRequiredMixin, ListView):
     model = Membership
@@ -152,6 +154,7 @@ def cancelSubscription(request):
     if user_sub.active is False:
         messages.info(request, "You dont have an active membership")
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+        # redirects to previous url
 
     sub = stripe.Subscription.retrieve(user_sub.stripe_subscription_id)
     sub.delete()
