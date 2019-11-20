@@ -18,8 +18,11 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'courses',
-    'memberships'
+    'memberships',
+    'videos',
+    'users.apps.UsersConfig',
 ]
+
 
 MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
@@ -110,3 +113,4 @@ AUTHENTICATION_BACKENDS = (
 )
 
 SITE_ID = 1
+AUTH_USER_MODEL = 'users.CustomUser'

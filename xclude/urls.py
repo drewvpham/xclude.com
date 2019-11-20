@@ -12,6 +12,7 @@ urlpatterns = [
     path('memberships/', include('memberships.urls', namespace='memberships')),
     path('courses/', include('courses.urls', namespace='courses')),
     path('accounts/', include('allauth.urls')),
+    path('videos/', include('videos.urls', namespace='videos')),
 ]
 
 if settings.DEBUG:
