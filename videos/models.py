@@ -23,8 +23,6 @@ class Video(models.Model):
     def __str__(self):
         return self.name + ": " + str(self.videofile)
 
-
-
 class Rating(models.Model):
     score = models.IntegerField(null=True)
     video = models.ForeignKey(Video, on_delete=models.CASCADE)

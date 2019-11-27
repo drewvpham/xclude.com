@@ -20,7 +20,7 @@ INSTALLED_APPS = [
     'courses',
     'memberships',
     'videos',
-    'users.apps.UsersConfig',
+    'users',
 ]
 
 
