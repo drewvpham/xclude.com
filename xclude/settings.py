@@ -17,10 +17,11 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'crispy_forms',
     'courses',
     'memberships',
     'videos',
-    'users',
+    'users'
 ]
 
 
@@ -94,7 +95,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_root'), ]
 VENV_PATH = os.path.dirname(BASE_DIR)
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(VENV_PATH, 'media_root')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
 
 if DEBUG:
     STRIPE_PUBLISHABLE_KEY = 'pk_test_xm6O0SP5IiyYhVkpiv6e2N9L00pKWd2f46'
@@ -113,4 +114,3 @@ AUTHENTICATION_BACKENDS = (
 )
 
 SITE_ID = 1
-AUTH_USER_MODEL = 'users.CustomUser'
