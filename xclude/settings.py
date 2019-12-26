@@ -25,8 +25,8 @@ INSTALLED_APPS = [
     'django_countries',
     'courses',
     'memberships',
-    'chat',
-    'channels',
+    # 'chat',
+    # 'channels',
     'videos',
     'users',
     'store',
@@ -70,6 +70,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'xclude.wsgi.application'
+# ASGI_APPLICATION = 'xclude.routing.application'
 
 DATABASES = {
     'default': {
