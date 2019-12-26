@@ -9,16 +9,18 @@ from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
-    url(r'', include('videos.urls', namespace='videos')),
+
     path('register/', user_views.register, name='register'),
     path('profile/', user_views.profile, name='profile'),
-    path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
+    # path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
+    # path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     path('admin/', admin.site.urls),
     path('memberships/', include('memberships.urls', namespace='memberships')),
     path('courses/', include('courses.urls', namespace='courses')),
     path('accounts/', include('allauth.urls')),
     path('videos/', include('videos.urls', namespace='videos')),
+    path('store/', include('store.urls', namespace='store-home')),
+    url(r'^', include('videos.urls', namespace='videos')),
 ]
 
 if settings.DEBUG:

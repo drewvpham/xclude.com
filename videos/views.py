@@ -17,13 +17,14 @@ class VideoListView(ListView):
 
 class VideoDetailView(DetailView):
     model = Video
+    template_name = "videos/video_detail.html"
 
 class VideoCreateView(CreateView):
     model = Video
     fields = ['title','description', 'videofile','thumbnail', 'private', 'tags']
 
     def form_valid(self, form):
-        form.instance.author = self.request.user
+        form.instance.uploader = self.request.user
         return super().form_valid(form)
 
 

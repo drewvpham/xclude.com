@@ -3,6 +3,7 @@ from memberships.models import Membership
 from django.contrib.auth import get_user_model
 from django_extensions.db.fields import AutoSlugField
 from django.urls import reverse
+from django.template.defaultfilters import slugify
 
 class Tag(models.Model):
     name = models.CharField(max_length=35)
@@ -22,13 +23,15 @@ class Video(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, blank=False)
     modified_at = models.DateTimeField(auto_now=True)
     private = models.BooleanField(default=True)
-    tags = models.ManyToManyField(Tag, blank=True)
+    tags = models.ManyToManyField(Tag, blank=True, null=True)
 
     def __str__(self):
         return self.title + ": " + str(self.videofile)
 
     def get_absolute_url(self):
-        return reverse('videos:detail', args=[self.id])
+        return reverse('videos:detail', kwargs={
+            'slug': self.slug
+        })
 
 class Rating(models.Model):
     score = models.IntegerField(null=True)

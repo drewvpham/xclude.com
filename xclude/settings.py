@@ -17,11 +17,17 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    # 'allauth.socialaccount.providers.google',
+    # 'allauth.socialaccount.providers.reddit',
+    # 'allauth.socialaccount.providers.facebook',
+    # 'allauth.socialaccount.providers.amazon',
     'crispy_forms',
+    'django_countries',
     'courses',
     'memberships',
     'videos',
-    'users'
+    'users',
+    'store'
 ]
 
 
@@ -46,7 +52,7 @@ ROOT_URLCONF = 'xclude.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -103,8 +109,8 @@ if DEBUG:
 
 else:
     # live keys
-    STRIPE_PUBLISHABLE_KEY = ''
-    STRIPE_SECRET_KEY = ''
+    STRIPE_PUBLISHABLE_KEY = 'pk_live_3hMjj6bqs8Ie8KWf9PiLXtkD00QbKNFvKT'
+    STRIPE_SECRET_KEY = 'sk_live_cvnPoC0eGouth0UVDurapjJM00IsvTGw1V'
 
 # Django allauth
 
@@ -113,4 +119,9 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
+LOGIN_REDIRECT_URL = '/'
 SITE_ID = 1
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# https://stackoverflow.com/questions/21563227/django-allauth-example-errno-61-connection-refused
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
