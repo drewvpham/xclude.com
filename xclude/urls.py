@@ -6,7 +6,7 @@ from django.conf.urls import url
 from users import views as user_views
 from memberships.views import Index
 from django.contrib.auth import views as auth_views
-
+from chat.views import index
 
 urlpatterns = [
 
@@ -20,7 +20,9 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('videos/', include('videos.urls', namespace='videos')),
     path('store/', include('store.urls', namespace='store-home')),
+    path('chat/', include('chat.urls', namespace='chat')),
     url(r'^', include('videos.urls', namespace='videos')),
+
 ]
 
 if settings.DEBUG:

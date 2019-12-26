@@ -25,9 +25,12 @@ INSTALLED_APPS = [
     'django_countries',
     'courses',
     'memberships',
+    'chat',
+    'channels',
     'videos',
     'users',
-    'store'
+    'store',
+
 ]
 
 
@@ -104,13 +107,13 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
 
 if DEBUG:
-    STRIPE_PUBLISHABLE_KEY = 'pk_test_xm6O0SP5IiyYhVkpiv6e2N9L00pKWd2f46'
-    STRIPE_SECRET_KEY = 'sk_test_PR5kGMKGavz5Bgd1nalJgKK700dU703AzR'
+    STRIPE_PUBLISHABLE_KEY = ''
+    STRIPE_SECRET_KEY = ''
 
 else:
     # live keys
-    STRIPE_PUBLISHABLE_KEY = 'pk_live_3hMjj6bqs8Ie8KWf9PiLXtkD00QbKNFvKT'
-    STRIPE_SECRET_KEY = 'sk_live_cvnPoC0eGouth0UVDurapjJM00IsvTGw1V'
+    STRIPE_PUBLISHABLE_KEY = ''
+    STRIPE_SECRET_KEY = ''
 
 # Django allauth
 
