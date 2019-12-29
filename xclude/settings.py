@@ -71,7 +71,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'xclude.wsgi.application'
 ASGI_APPLICATION = 'xclude.routing.application'
-
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -100,13 +107,21 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-STATIC_URL = '/static_/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_root'), ]
 VENV_PATH = os.path.dirname(BASE_DIR)
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-MEDIA_URL = '/media/'
+print()
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
-print(MEDIA_ROOT)
+
+
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_in_env')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
+
+
+
 if DEBUG:
     STRIPE_PUBLISHABLE_KEY = 'pk_test_xm6O0SP5IiyYhVkpiv6e2N9L00pKWd2f46'
     STRIPE_SECRET_KEY = 'sk_test_PR5kGMKGavz5Bgd1nalJgKK700dU703AzR'
