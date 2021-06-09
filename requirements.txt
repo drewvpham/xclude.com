@@ -18,7 +18,7 @@ cycler==0.10.0
 daphne==2.4.1
 decorator==4.4.1
 defusedxml==0.6.0
-Django==2.2.7
+Django==2.2.22
 django-allauth==0.40.0
 django-countries==5.5
 django-crispy-forms==1.8.1
